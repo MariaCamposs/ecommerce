@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="container-orders">
+    <div class="listProducts">
+      <i class="fas fa-shopping-cart" routerLink='/cart'></i>
+      <div class="buttons">
+        <button type="submit" (click)="filterType('electronics')">E</button>
+        <button type="submit" (click)="filterType('jewelery')">J</button>
+        <button type="submit" (click)="filterType('men\'s clothing')">M</button>
+        <button type="submit" (click)="filterType('women\'s clothing')">W</button>
+      </div>
+
+      <div class="showProducts">
+        <div class="infoProduct" *ngFor="let product of items">
+          <div class="iconAdd">
+            <fa-icon class="icon" (click)="addProduct(product)" [icon]="faPlusCircle"></fa-icon>
+          </div>
+          <div class="description">
+            <div class="image">
+              <img [src]="product.image" alt="">
+            </div>
+            <p class="name">{{ product.title }}</p>
+            <p class="price">$ {{product.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

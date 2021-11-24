@@ -1,0 +1,15 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <form [formGroup]="form">
+      <div>
+        <input id="username" type="username" name="username" formControlName="username" autocomplete="off" class="fadeIn second"
+          placeholder="usuario">
+      </div>
+      <div class="passwordGroup">
+        <input id="password" name="password" formControlName="password" class="fadeIn third" placeholder="contraseña">
+      </div>
+      <p *ngIf="error" class="error">{{errorMessage}}</p>
+      <input type="submit" class="fadeIn fourth" value="Iniciar sesión" (click)="onLogin()">
+    </form>
+  </div>
+</div>

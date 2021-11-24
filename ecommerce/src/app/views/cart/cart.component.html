@@ -1,0 +1,52 @@
+<section class="section">
+  <header class="container-balance">
+    <div class="container">
+      <i class="fas fa-arrow-left" (click)="changeView()"></i>
+    </div>
+    <div>
+      <p>Cantidad</p>
+      <p>Producto/Descripción</p>
+    </div>
+  </header>
+  <div class="container-empty"></div>
+  <main class="main">
+    <section class="product-cards" *ngFor="let item of products">
+      <div>
+        <div class="img-products-container">
+          <img class="img-products" src={{item.products.image}} alt="">
+        </div>
+        <div class="amount-container">
+          <button class="circle">
+            <i class="fas fa-minus" (click)="decreaseOneItem(item)"></i>
+          </button>
+          <span>{{item.products.quantity}}</span>
+          <button class="circle">
+            <i class="fas fa-plus" (click)="increaseOneItem(item)"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h1>{{item.products.title}}</h1>
+        <p>Cantidad : {{item.products.quantity}}</p>
+        <p>$ {{item.products.price}}</p>
+
+      </div>
+      <i class="fas fa-trash-alt" (click)="modal()"></i>
+    </section>
+
+    <div class="container-product-amount">
+      <p>Total: $ {{total}}</p>
+      <p></p>
+    </div>
+  </main>
+</section>
+<!-- <p *ngIf="total-descuento<0" > s/ {{total-descuento}}</p>
+<section *ngIf="myModal==true">
+  <section class="modal-section" *ngFor="let product of arrayProducts">
+    <div class="modal">
+      <p class="text-modal">Se removerá un ítem de tu carrito de compras</p>
+      <button class="accept-button" (click)="deleteOrder(product.id); modal()">ACEPTAR</button>
+      <button class="cancel-button" (click)="closeModal(false)">CANCELAR</button>
+    </div>
+  </section>
+</section> -->
