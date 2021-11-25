@@ -6,7 +6,7 @@
   </header>
   <main class="main">
     <section class="product-cards" *ngFor="let item of products">
-      <fa-icon class="icon trash" [icon]="faTrashAlt" (click)="modal()"></fa-icon>
+      <fa-icon class="icon trash" [icon]="faTrashAlt" (click)="deleteItem(item)"></fa-icon>
       <div class="img-products-container">
         <img class="img-products" src={{item.products.image}} alt="">
       </div>
@@ -25,24 +25,22 @@
         </div>
       </div>
     </section>
-    <div class="container-amount">
-      <div class="total">
-        <p>Total</p>
-        <p class="total-amount">$ {{total}}</p>
-      </div>
-      <div>
-        <button class="buy">Buy Now</button>
-      </div>
-    </div>
   </main>
+  <div class="container-amount">
+    <div class="total">
+      <h1>Total</h1>
+      <h1 class="total-amount">$ {{total}}</h1>
+    </div>
+    <div>
+      <button class="buy" (click)="modal()">Buy Now</button>
+    </div>
+  </div>
 </section>
-<!-- <p *ngIf="total-descuento<0" > s/ {{total-descuento}}</p>
 <section *ngIf="myModal==true">
-  <section class="modal-section" *ngFor="let product of arrayProducts">
+  <section class="modal-section">
     <div class="modal">
-      <p class="text-modal">Se removerá un ítem de tu carrito de compras</p>
-      <button class="accept-button" (click)="deleteOrder(product.id); modal()">ACEPTAR</button>
-      <button class="cancel-button" (click)="closeModal(false)">CANCELAR</button>
+      <p class="text-modal">Your purchase is on the way!</p>
+      <button class="accept-button" routerLink='/home'>OK</button>
     </div>
   </section>
-</section> -->
+</section>

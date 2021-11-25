@@ -1,6 +1,9 @@
 <div class="container">
   <div class="container-orders">
-    <fa-icon class="icon" [icon]="faShoppingCart" routerLink='/cart'></fa-icon>
+    <div class="header">
+      <fa-icon class="iconCart" [icon]="faShoppingCart" routerLink='/cart'></fa-icon>
+      <fa-icon class="iconCart" [icon]="faSignOutAlt" (click)="btnLogOut()"></fa-icon>
+    </div>
     <div class="container-categories">
       <h3>Top Categories</h3>
       <div class="buttons">
@@ -13,15 +16,15 @@
     <div class="listProducts">
       <div class="showProducts">
         <div class="infoProduct" *ngFor="let product of items">
-          <div class="iconAdd">
-            <fa-icon class="icon" (click)="addProduct(product)" [icon]="faPlusCircle"></fa-icon>
-          </div>
           <div class="image">
             <img [src]="product.image" alt="product.title">
           </div>
           <div class="description">
-            <p class="title">{{ product.title }}</p>
-            <p class="price">$ {{product.price }}</p>
+            <h2 class="title">{{product.title }}</h2>
+            <h1 class="price">$ {{product.price }}</h1>
+          </div>
+          <div class="iconAdd">
+            <button (click)="addProduct(product)" class="add-button">Add to cart <fa-icon class="icon-add" [icon]="faShoppingCart"></fa-icon></button>
           </div>
         </div>
       </div>

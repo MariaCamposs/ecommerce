@@ -13,7 +13,7 @@
 
 .showProducts
   display: flex
-  flex-wrap: wrap
+  flex-flow: wrap
   width: 100%
   justify-content: center
 
@@ -26,6 +26,8 @@
   display: flex
   flex-direction: column
   align-items: center
+  box-sizing: border-box
+  justify-content: space-around
 
 img
   width: 50px
@@ -38,12 +40,12 @@ img
   padding: 1rem
 
 .title
-  font-size: 12px
+  font-size: 16px
   color: #928F8F
 
 .price
   font-weight: boldest
-  font-size: 18px
+  font-size: 22px
 
 .buttons
   width: 100%
@@ -51,13 +53,13 @@ img
   gap: 10px
   justify-content: center
 
-button
+button[type=submit]
   border-style: none
   width: 80px
   border-radius: 10px
   background-color: #F3F3F3
 
-button:hover
+button[type=submit]:hover
   background-color: var(--principal-color)
   transition: 0.5s
 
@@ -65,3 +67,45 @@ button:hover
   width: 30px
   height: 30px
   align-self: center
+
+.amount
+  transform: translate(60px, -10px)
+  background-color: var(--background-color)
+  display: flex
+  gap: 5px
+  border-radius: 10px
+  justify-content: center
+  width: 70px
+
+.circle
+  border-style: none
+  background-color: var(--background-color)
+
+.icon-add
+  border-style: none
+  color: var(--background-color)
+
+.add-button
+  border-style: none
+  background-color: var(--principal-color)
+  color: var(--background-color)
+  border-radius: 15px
+  padding: 5px
+  font-size: 18px
+
+.iconCart
+  display: flex
+  justify-content: flex-end
+  color: var(--principal-color)
+
+.header
+  display: flex
+  justify-content: flex-end
+  gap: 15px
+  padding: 10px
+  font-size: 25px
+
+@media only screen and ( min-width: 960px)
+  h3
+    transform: translate(490px)
+    width: 200px

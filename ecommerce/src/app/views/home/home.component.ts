@@ -1,8 +1,9 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { IProductDetail } from 'src/app/models/product-model';
 import { ProductService } from 'src/app/services/product.service';
-import { faPlusCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faShoppingCart, faCartPlus, faMinus, faPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { CommunicationService } from 'src/app/services/communication.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { CommunicationService } from 'src/app/services/communication.service';
 })
 export class HomeComponent implements OnInit, OnChanges {
 
+  statusProduct = false
   products: Array<IProductDetail>;
   product!: Object;
   items: any[] = [];
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit, OnChanges {
   productItem: any[] = [];
   total: number
   base: number = 1;
-  constructor(private productService: ProductService, private communication: CommunicationService) {
+  constructor(private productService: ProductService, private communication: CommunicationService, private auth: AuthService) {
     this.cart = []
     this.products = []
     this.items = []
@@ -108,9 +110,24 @@ export class HomeComponent implements OnInit, OnChanges {
     console.log('enviado')
   }
 
+  changeStatusProduct() {
+    this.statusProduct = !this.statusProduct
+  }
+
+  deleteItem(id: number) {
+    this.cart = this.cart.filter((product: { id: number }) => product.id !== id);
+  }
+
+  btnLogOut() {
+    this.auth.logout();
+  }
 
   faPlusCircle = faPlusCircle;
   faShoppingCart = faShoppingCart;
+  faCartPlus = faCartPlus;
+  faMinus = faMinus;
+  faPlus = faPlus;
+  faSignOutAlt = faSignOutAlt;
 /*
 
   decreaseOneItem(item: CartProductModel) {
