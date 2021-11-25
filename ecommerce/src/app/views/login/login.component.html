@@ -1,15 +1,16 @@
-<div class="wrapper fadeInDown">
-  <div id="formContent">
+<div id="formContent">
+    <h1>¡Bienvenido a My E-Commerce!</h1>
     <form [formGroup]="form">
       <div>
-        <input id="username" type="username" name="username" formControlName="username" autocomplete="off" class="fadeIn second"
+        <input id="username" type="text" name="username" formControlName="username" autocomplete="off" class="fadeIn second"
           placeholder="usuario">
       </div>
       <div class="passwordGroup">
-        <input id="password" name="password" formControlName="password" class="fadeIn third" placeholder="contraseña">
+        <input id="password" type="text" name="password" formControlName="password" class="fadeIn third" placeholder="contraseña">
       </div>
-      <p *ngIf="error" class="error">{{errorMessage}}</p>
-      <input type="submit" class="fadeIn fourth" value="Iniciar sesión" (click)="onLogin()">
+      <div>
+        <p *ngIf="error" class="error">{{errorMessage}}</p>
+        <input type="submit" class="button" value="Iniciar sesión" (click)="onLogin()">
+      </div>
     </form>
   </div>
-</div>

@@ -1,24 +1,26 @@
 <div class="container">
   <div class="container-orders">
-    <div class="listProducts">
-      <i class="fas fa-shopping-cart" routerLink='/cart'></i>
+    <fa-icon class="icon" [icon]="faShoppingCart" routerLink='/cart'></fa-icon>
+    <div class="container-categories">
+      <h3>Top Categories</h3>
       <div class="buttons">
-        <button type="submit" (click)="filterType('electronics')">E</button>
-        <button type="submit" (click)="filterType('jewelery')">J</button>
-        <button type="submit" (click)="filterType('men\'s clothing')">M</button>
-        <button type="submit" (click)="filterType('women\'s clothing')">W</button>
+        <button type="submit" (click)="filterType('electronics')"><img class="categories" src="../../../assets/img/dispositivos.png" alt="electronics"></button>
+        <button type="submit" (click)="filterType('jewelery')"><img class="categories" src="../../../assets/img/diamond-ring.png" alt="jewelery"></button>
+        <button type="submit" (click)="filterType('men\'s clothing')"><img class="categories" src="../../../assets/img/man.png" alt="men\'s clothing"></button>
+        <button type="submit" (click)="filterType('women\'s clothing')"><img class="categories" src="../../../assets/img/dress.png" alt="women\'s clothing"></button>
       </div>
-
+    </div>
+    <div class="listProducts">
       <div class="showProducts">
         <div class="infoProduct" *ngFor="let product of items">
           <div class="iconAdd">
             <fa-icon class="icon" (click)="addProduct(product)" [icon]="faPlusCircle"></fa-icon>
           </div>
+          <div class="image">
+            <img [src]="product.image" alt="product.title">
+          </div>
           <div class="description">
-            <div class="image">
-              <img [src]="product.image" alt="">
-            </div>
-            <p class="name">{{ product.title }}</p>
+            <p class="title">{{ product.title }}</p>
             <p class="price">$ {{product.price }}</p>
           </div>
         </div>

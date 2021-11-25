@@ -10,7 +10,7 @@ import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CartComponent } from './views/cart/cart/cart.component';
+import { CartComponent } from './views/cart/cart.component';
 
 @NgModule({
   declarations: [

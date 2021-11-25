@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { Router } from '@angular/router';
+import { faArrowLeft, faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart',
@@ -92,4 +93,9 @@ export class CartComponent implements OnInit {
       .map(item => item.products.quantity * item.products.price)
       .reduce((acc, item) => acc += item, 0)
   }
+
+  faArrowLeft = faArrowLeft;
+  faMinus = faMinus;
+  faPlus = faPlus;
+  faTrashAlt = faTrashAlt;
 }

@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { IProductDetail } from 'src/app/models/product-model';
 import { ProductService } from 'src/app/services/product.service';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CommunicationService } from 'src/app/services/communication.service';
 
 @Component({
@@ -110,6 +110,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
 
   faPlusCircle = faPlusCircle;
+  faShoppingCart = faShoppingCart;
 /*
 
   decreaseOneItem(item: CartProductModel) {

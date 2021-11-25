@@ -1,42 +1,38 @@
 <section class="section">
   <header class="container-balance">
     <div class="container">
-      <i class="fas fa-arrow-left" (click)="changeView()"></i>
-    </div>
-    <div>
-      <p>Cantidad</p>
-      <p>Producto/Descripción</p>
+      <fa-icon class="icon" [icon]="faArrowLeft" (click)="changeView()"></fa-icon>
     </div>
   </header>
-  <div class="container-empty"></div>
   <main class="main">
     <section class="product-cards" *ngFor="let item of products">
-      <div>
-        <div class="img-products-container">
-          <img class="img-products" src={{item.products.image}} alt="">
-        </div>
-        <div class="amount-container">
-          <button class="circle">
-            <i class="fas fa-minus" (click)="decreaseOneItem(item)"></i>
-          </button>
-          <span>{{item.products.quantity}}</span>
-          <button class="circle">
-            <i class="fas fa-plus" (click)="increaseOneItem(item)"></i>
-          </button>
-        </div>
+      <fa-icon class="icon trash" [icon]="faTrashAlt" (click)="modal()"></fa-icon>
+      <div class="img-products-container">
+        <img class="img-products" src={{item.products.image}} alt="">
       </div>
       <div class="product-info">
-        <h1>{{item.products.title}}</h1>
+        <h1 class="title">{{item.products.title}}</h1>
         <p>Cantidad : {{item.products.quantity}}</p>
-        <p>$ {{item.products.price}}</p>
-
+        <h1 class="price">$ {{item.products.price}}</h1>
+        <div class="amount">
+          <button class="circle">
+            <fa-icon class="icon-quantity" [icon]="faMinus" (click)="decreaseOneItem(item)"></fa-icon>
+          </button>
+          <span class="quantity-buttons">{{item.products.quantity}}</span>
+          <button class="circle">
+            <fa-icon class="icon-quantity" [icon]="faPlus" (click)="increaseOneItem(item)"></fa-icon>
+          </button>
+        </div>
       </div>
-      <i class="fas fa-trash-alt" (click)="modal()"></i>
     </section>
-
-    <div class="container-product-amount">
-      <p>Total: $ {{total}}</p>
-      <p></p>
+    <div class="container-amount">
+      <div class="total">
+        <p>Total</p>
+        <p class="total-amount">$ {{total}}</p>
+      </div>
+      <div>
+        <button class="buy">Buy Now</button>
+      </div>
     </div>
   </main>
 </section>
